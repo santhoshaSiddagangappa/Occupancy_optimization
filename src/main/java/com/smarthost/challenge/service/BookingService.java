@@ -18,8 +18,8 @@ public class BookingService {
         this.getBids = getBids;
     }
 
-    public ResponseEntity<BookingResults> bookingForecast(final int availableEconomyRooms,
-                                                          final int availablePremiumRooms){
+    public ResponseEntity<BookingResults> bookingForecast(final int availablePremiumRooms,
+                                                          final int availableEconomyRooms) {
         return new ResponseEntity<>(new BookingResults(0, 0,
                 0, 0), HttpStatus.OK);
     }

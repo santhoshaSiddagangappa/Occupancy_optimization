@@ -16,8 +16,8 @@ public class BookingController {
     BookingService bookingService;
 
     @GetMapping(value = "/booking-forecast", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<BookingResults> bookingForeCast(@RequestParam(required = true) int availableEconomyRooms,
-                                                          @RequestParam(required = true) int availablePremiumRooms){
-        return bookingService.bookingForecast(availableEconomyRooms, availablePremiumRooms);
+    public ResponseEntity<BookingResults> bookingForeCast(@RequestParam(required = true) int availablePremiumRooms,
+                                                          @RequestParam(required = true) int availableEconomyRooms){
+        return bookingService.bookingForecast(availablePremiumRooms, availableEconomyRooms);
     }
 }
