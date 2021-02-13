@@ -1,5 +1,6 @@
 package com.smarthost.challenge.service;
 
+import com.smarthost.challenge.model.BookingResults;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpStatus;
@@ -17,8 +18,10 @@ public class BookingService {
         this.getBids = getBids;
     }
 
-    public ResponseEntity<String> bookingForecast(){
-        return new ResponseEntity<>(getBids.toString(), HttpStatus.OK);
+    public ResponseEntity<BookingResults> bookingForecast(final int availableEconomyRooms,
+                                                          final int availablePremiumRooms){
+        return new ResponseEntity<>(new BookingResults(0, 0,
+                0, 0), HttpStatus.OK);
     }
 
 }
