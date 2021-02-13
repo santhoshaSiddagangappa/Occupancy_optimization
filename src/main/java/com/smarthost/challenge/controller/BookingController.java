@@ -1,17 +1,20 @@
 package com.smarthost.challenge.controller;
 
+import com.smarthost.challenge.service.BookingService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
-
-import java.util.List;
 
 @RestController
 public class BookingController {
 
-    private List<Integer> getBids;
+    @Autowired
+    BookingService bookingService;
 
-    public BookingController(@Autowired @Qualifier("getBids") List<Integer> getBids) {
-        this.getBids = getBids;
+    @GetMapping(value = "/booking-forecast", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<String> bookingForeCast(){
+        return bookingService.bookingForecast();
     }
 }
