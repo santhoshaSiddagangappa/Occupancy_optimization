@@ -1,30 +1,31 @@
 package com.smarthost.challenge.model;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import lombok.ToString;
 
 @ApiModel(description = "Class representing Booking results")
+@ToString
 public class BookingResults {
 
-    @ApiModelProperty(position = 4)
-    private int economyRoomsUsage;
+    @ApiModelProperty(position = 1)
+    private int premiumRooms;
+
+    @ApiModelProperty(position = 2)
+    private int economyRooms;
 
     @ApiModelProperty(position = 3)
     private int premiumRoomsUsage;
 
-    @ApiModelProperty(position = 2)
-    private int economyRoomsIncome;
+    @ApiModelProperty(position = 4)
+    private int economyRoomsUsage;
 
-    @ApiModelProperty(position = 1)
-    private int premiumRoomsIncome;
-
-    public BookingResults(final int premiumRoomsIncome,
-                          final int economyRoomsIncome,
+    public BookingResults(final int premiumRooms,
+                          final int economyRooms,
                           final int premiumRoomsUsage,
                           final int economyRoomsUsage) {
-        this.premiumRoomsIncome = premiumRoomsIncome;
-        this.economyRoomsIncome = economyRoomsIncome;
+        this.premiumRooms = premiumRooms;
+        this.economyRooms = economyRooms;
         this.premiumRoomsUsage = premiumRoomsUsage;
         this.economyRoomsUsage = economyRoomsUsage;
     }
@@ -37,12 +38,12 @@ public class BookingResults {
         return premiumRoomsUsage;
     }
 
-    public int getEconomyRoomsIncome() {
-        return economyRoomsIncome;
+    public int getEconomyRooms() {
+        return economyRooms;
     }
 
-    public int getPremiumRoomsIncome() {
-        return premiumRoomsIncome;
+    public int getPremiumRooms() {
+        return premiumRooms;
     }
 
 }
