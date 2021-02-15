@@ -72,4 +72,17 @@ public class BookingControllerTest {
                 .andExpect(jsonPath("$.economyRoomsUsage", is(189)));
     }
 
+    @Test
+    public void bookingForecast_premiumBidsLack_1() throws Exception {
+        mockMvc.perform(
+                get("/booking-forecast")
+                        .param("availablePremiumRooms", "7")
+                        .param("availableEconomyRooms", "1"))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.premiumRooms", is(7)))
+                .andExpect(jsonPath("$.economyRooms", is(1)))
+                .andExpect(jsonPath("$.premiumRoomsUsage", is(1153)))
+                .andExpect(jsonPath("$.economyRoomsUsage", is(45)));
+    }
+
 }
