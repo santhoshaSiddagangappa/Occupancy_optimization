@@ -12,6 +12,10 @@ $ mvn test
 ```
 $ mvn spring-boot:run
 ```
+Or 
+
+Run Application.java class
+
 ### Access swagger html url
     http://localhost:8080/swagger-ui.html
 
